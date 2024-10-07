@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vaccine History
+{% endblock %}
+
+{% block main %}
+    <table style="background-color: white; border: 1em; border-style: solid; border-color: white;">
+      <tr>
+        <td style="text-align:right">Health Card Id:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].healthcard_id }}</td>
+      </tr>
+
+      <tr>
+        <td style="text-align:right">Name:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].lastname }}, {{ rows[0].firstname }}</td>
+      </tr>
+
+      <tr> <!-- empty space -->
+        <td style="text-align:right">&nbsp;</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left"></td>
+      </tr>
+
+{% if (rows[0].first_dose_name == None) %}
+        <td style="text-align:right">1st Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">Not Administrated</td>
+{% else %}
+      <tr>
+        <td style="text-align:right">1st Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].first_dose_name }} on {{ rows[0].first_dose_date }} by Nurse {{ rows[0].lastname1 }}, {{ rows[0].firstname1 }}</td>
+      </tr>
+{% endif %}
+
+      <tr> <!-- empty space -->
+        <td style="text-align:right">&nbsp;</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left"></td>
+      </tr>
+
+{% if (rows[0].sec_dose_name == None) %}
+        <td style="text-align:right">2nd Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">Not Administrated</td>
+{% else %}
+      <tr>
+        <td style="text-align:right">2nd Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].sec_dose_name }} on {{ rows[0].sec_dose_date }} by Nurse {{ rows[0].lastname2 }}, {{ rows[0].firstname2 }}</td>
+      </tr>
+{% endif %}
+
+    </table>
+
+    <!-- empty space -->
+    <div style="margin-bottom: 3em;"></div>
+
+<!-- qrcode -->
+
+<!-- {{vaccine_qr}} -->
+
+<!--script to include-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<script>
+function CreateQR(){
+
+  document.getElementById("DivForQrCode").innerHTML="";
+
+  var qrcode = new QRCode("DivForQrCode", {
+     text: {{ vaccine_qr|tojson }},
+     width: 128,
+     height: 128,
+     colorDark : "#000000",
+     colorLight : "#ffffff",
+     correctLevel : QRCode.CorrectLevel.H
+  });
+}
+</script>
+
+<div id="DivForQrCode" style="margin-left: 6em; padding: 1em; width: 10em; background-color: white;"></div>
+
+<script>
+CreateQR();
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+    <form action="/admin" method="post">
+
+        <div class="form-group" style="margin:0 auto;">
+
+            <h2 style="text-align: center; color: black;">Admin </h2>
+
+            <div class="spacer">
+            </div>
+
+            <label for "healthid">Patient's Health Card Id:</label>
+            <input autocomplete="off" autofocus class="form-control" name="healthid" placeholder="Health Card ID" type="text" id="healthid">
+
+            <div class="spacer">
+            </div>
+
+            <div style="text-align: center;">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+{% endblock %}

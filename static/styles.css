@@ -1,0 +1,83 @@
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+main .form-control
+{
+    display: inline-block;
+    width: auto;
+}
+
+main
+{
+    overflow-x: auto;
+}
+
+main img
+{
+    max-width: 100%;
+}
+
+body
+{
+  background-image: url('/static/vaccinebg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+nav
+{
+    background-color: #0F52BA;
+    box-shadow: 5px -5px 10px 10px rgba(0,0,0,0.5)
+}
+
+.form-group
+{
+    border-radius: 25px;
+    background-color: #99badd;
+    width: 21em;
+    padding: 3em;
+    margin: 1em;
+    box-shadow: 5px -1px 10px 10px rgba(0,0,0,0.1);
+}
+
+.spacer
+{
+    background-color: #99badd;
+    width: 16em;
+    height: 1em;
+    padding: 1em;
+}
+
+.credit
+{
+    background-color: /*placeholder - light blue*/;
+    width: 20em;
+    height: 3em;
+    padding: 1em;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: black;
+            opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: black;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+            color: black;
+}
+
+label
+{
+    color: black;
+}
+
+navbar-nav ml-auto mt-2
+{
+    color: white;
+}

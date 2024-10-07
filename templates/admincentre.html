@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+    <table style="background-color: white; border: 1em; border-style: solid; border-color: white;">
+      <tr>
+        <td style="text-align:right">Health Card Id:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].healthcard_id }}</td>
+      </tr>
+
+      <tr>
+        <td style="text-align:right">Name:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].lastname }}, {{ rows[0].firstname }}</td>
+      </tr>
+
+      <tr> <!-- empty space -->
+        <td style="text-align:right">&nbsp;</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left"></td>
+      </tr>
+
+{% if (rows[0].first_dose_name == None) %}
+        <td style="text-align:right">1st Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">Not Administrated</td>
+{% else %}
+      <tr>
+        <td style="text-align:right">1st Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].first_dose_name }} at {{ rows[0].first_dose_date }} by {{ rows[0].firstname1 }} {{ rows[0].lastname1 }}</td>
+      </tr>
+{% endif %}
+
+      <tr> <!-- empty space -->
+        <td style="text-align:right">&nbsp;</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left"></td>
+      </tr>
+
+{% if (rows[0].sec_dose_name == None) %}
+        <td style="text-align:right">2nd Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">Not Administrated</td>
+{% else %}
+      <tr>
+        <td style="text-align:right">2nd Dose:</td>
+        <td style="width:1em"></td>
+        <td style="text-align:left">{{ rows[0].sec_dose_name }} at {{ rows[0].sec_dose_date }} by {{ rows[0].firstname2 }} {{ rows[0].lastname2 }}</td>
+      </tr>
+{% endif %}
+
+    </table>
+
+    <!-- empty space -->
+    <div style="margin-bottom: 2em;"></div>
+
+{% if (rows[0].sec_dose_name != None) %}
+
+    <h1 style="background-color: white; border: 1em; border-style: solid; border-color: white;">Both first and second doses have been Administrated.</h1>
+
+{% else %}
+    <form action="/admincentre" method="post">
+        <div class="form-group" style="margin:0 auto; width:34em;">
+
+        <fieldset style="border:5px; solid:#1F497D; background-color: #eeeeee;;
+                  border-radius: 5px; padding: 15px;" id="vaccine_type">
+
+          <legend style="background: #1F497D; color: #fff; padding: 5px 10px ;
+                   border-radius: 5px; box-shadow: 0 0 0 5px #ddd;">Vaccine administered today</legend>
+
+          <input type="radio" id="pfizer" name="vaccine_type" value="Pfizer">
+          <label for="pfizer">Pfizer-BioNTech</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="moderna" name="vaccine_type" value="Moderna">
+          <label for="moderna">Moderna</label>
+        </fieldset>
+
+        <div class="spacer">
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        </div>
+    </form>
+{% endif %}
+
+{% endblock %}
