@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register (Nurse)
+{% endblock %}
+
+{% block main %}
+    <form action="/registernurse" method="post">
+
+        <div class="form-group" style="margin:0 auto;">
+
+            <h2 style="text-align: center; color: black;">Nurse Register</h2>
+    
+            <div class="spacer">
+            </div>
+    
+            <label for "username" style="text-align: left">Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" id="username">
+    
+            <div class="spacer">
+            </div>
+    
+            <label for "password" style="text-align: left">Password:</label>
+            <input class="form-control" name="password" placeholder="Password" type="password" id="password">
+    
+            <div class="spacer">
+            </div>
+    
+            <label for "firstname" style="text-align: left">First Name:</label>
+            <input class="form-control" name="firstname" placeholder="First Name" type="text" id="firstname">
+    
+            <div class="spacer">
+            </div>
+    
+            <label for "lastname" style="text-align: left">Last Name:</label>
+            <input class="form-control" name="lastname" placeholder="Last Name" type="text" id="lastname">
+    
+            <div class="spacer">
+            </div>
+    
+            <div style="text-align: center;">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+
+        </div>
+    </form>
+{% endblock %}

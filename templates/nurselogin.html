@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In (Nurse)
+{% endblock %}
+
+{% block main %}
+    <form action="/nurselogin" method="post">
+
+        <div class="form-group" style="margin:0 auto;">
+
+            <h2 style="text-align: center; color: black;">Nurse Log In</h2>
+
+            <div class="spacer">
+            </div>
+
+            <label for "username" style="text-align: left">Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" id="username">
+
+            <div class="spacer">
+            </div>
+
+            <label for "password" style="text-align: left">Password:</label>
+            <input class="form-control" name="password" placeholder="Password" type="password" id="password">
+
+            <div class="spacer">
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </div>
+
+        </div>
+
+    </form>
+{% endblock %}

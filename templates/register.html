@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+
+        <div class="form-group" style="margin:0 auto;">
+
+            <h2 style="text-align: center; color: black;">Register</h2>
+
+            <div class="spacer">
+            </div>
+
+            <label for "healthcard_id" style="text-align: left">Health Card Id:</label>
+            <input autocomplete="off" autofocus class="form-control" name="healthcard_id" placeholder="Health Card Id" type="text" id="healthcard_id">
+
+            <div class="spacer">
+            </div>
+
+            <label for "password" style="text-align: left">Password:</label>
+            <input class="form-control" name="password" placeholder="Password" type="password" id="password">
+
+            <div class="spacer">
+            </div>
+
+            <label for "firstname" style="text-align: left">First Name:</label>
+            <input class="form-control" name="firstname" placeholder="First Name" type="text" autocomplete="off" id="firstname">
+
+            <div class="spacer">
+            </div>
+
+            <label for "lastname" style="text-align: left">Last Name:</label>
+            <input class="form-control" name="lastname" placeholder="Last Name" type="text" autocomplete="off" id="lastname">
+
+            <div class="spacer">
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn btn-primary" type="submit" style="margin-top: 1em">Register</button>
+            </div>
+
+        </div>
+    </form>
+{% endblock %}
